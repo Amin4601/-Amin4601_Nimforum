@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Nim programming language forum</title>
+
+  <link rel="stylesheet" href="nimforum.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+    <header id="main-navbar">
+      <div class="navbar container grid-xl">
+        <section class="navbar-section">
+          <a href="#">
+            <img src="images/crown.png"
+                 id="img-logo"/>
+          </a>
+        </section>
+        <section class="navbar-section">
+          <div class="input-group input-inline">
+            <input class="form-input input-sm" type="text" placeholder="search">
+          </div>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Sign up</button>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i> Log in</button>
+        </section>
+      </div>
+    </header>
+
+    <section class="container grid-xl">
+      <div class="title">
+        <p>Lexers and parsers in nim</p>
+        <div class="triangle"></div> community
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div class="post-icon">
+            <figure class="post-avatar">
+              <img src="https://www.gravatar.com/avatar/aa81bb8117f158b6d9e6f3f174092573?s=80&amp;d=identicon" alt="Avatar">
+            </figure>
+          </div>
+          <div class="post-main">
+            <div class="post-title">
+              <div class="post-username">
+                ErikCampobadal
+              </div>
+              <div class="post-time">Jan 2015</div>
+            </div>
+            <div class="post-content">
+              <p>Hey! I'm willing to create a programming language using nim.</p>
+
+<p>It's an educational project. Been reading about compilers for weeks now and I started using tools like flex and bison for lexer and parser. I know nim have a parsing library but nowhere near that level.</p>
+
+<p>There is an old post (2014) with a similar question so I'm bringing that back a few years later. Is there anything anyone know that could speed up the process of developing a programing language using nim? (I can have c code if needed ofc)</p>
+            </div>
+            <div class="post-buttons">
+              <div class="like-button">
+                <button class="btn">
+                  <span class="like-count">2</span>
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+              <div class="flag-button">
+                <button class="btn">
+                  <i class="far fa-flag"></i>
+                </button>
+              </div>
+              <div class="reply-button">
+                <button class="btn">
+                  <i class="fas fa-reply"></i>
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-icon">
+            <figure class="post-avatar">
+              <img src="https://www.gravatar.com/avatar/bfa46cf3ac91fcf26792ff824983e07e?s=80&d=identicon" alt="Avatar">
+            </figure>
+          </div>
+          <div class="post-main">
+            <div class="post-title">
+              <div class="post-username">
+                twetzel59
+              </div>
+              <div class="post-time">Jan 2015</div>
+            </div>
+            <div class="post-content">
+              <p>Wow, I was just reading about the compilation pipeline today!</p>
+
+<p>I suppose you could use at least the lexing part from a generator like <code>flex</code>, not so sure about using AST generators <b>easily</b> (it's possible).</p>
+
+<p>Is your language complicated enough to warrant a parser generator or could you just use a custom parser?</p>
+            </div>
+            <div class="post-buttons">
+              <div class="like-button">
+                <button class="btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="flag-button">
+                <button class="btn">
+                  <i class="far fa-flag"></i>
+                </button>
+              </div>
+              <div class="reply-button">
+                <button class="btn">
+                  <i class="fas fa-reply"></i>
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="information time-passed">
+          <div class="information-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="information-main">
+            <div class="information-title">
+              3 years later
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-icon">
+            <figure class="post-avatar">
+              <img src="https://www.gravatar.com/avatar/1d180d9e0368472144840049b3d79448?s=80&d=identicon" alt="Avatar">
+            </figure>
+          </div>
+          <div class="post-main">
+            <div class="post-title">
+              <div class="post-username">
+                dom96 <i class="fas fa-shield-alt"></i> <i class="fas fa-chess-king"></i><!-- Random idea, allow to specify any icon class -->
+              </div>
+              <div class="post-time">32m</div>
+            </div>
+            <div class="post-content">
+              <p>Let us test this new design a bit, <i>shall we?</i></p>
+              <pre class="code" data-lang="Nim"><code>proc hello(x: int) =
+  echo("Hello ", x)
+
+42.hello()</code><div class="code-buttons"><button class="btn btn-primary btn-sm">Run</button></div></pre><pre class="execution-result execution-success"><button class="btn btn-clear float-right"></button><h6>Output</h6>Hello 42</pre>
+
+<p>The greatest function ever written is <code>hello</code>.</p>
+<blockquote>
+  <p>Designing websites is often a pain.</p>
+  <blockquote>Multi-level baby!</blockquote></blockquote>
+<p>True that.</p>
+<p>I also want to be able to support more detailed quoting:</p>
+<blockquote>
+  <div class="detail">
+    <figure class="quote-avatar">
+      <img src="https://www.gravatar.com/avatar/ad1ada3bea74a6afab83d2e40da1dcf3?s=30&d=identicon" alt="Avatar">
+    </figure>
+    <span class="quote-username">Araq:</span>
+    <span class="quote-link"><i class="fas fa-arrow-up"></i></span>
+  </div>
+  Unix is a cancer.
+</blockquote>
+<p>We also want to be able to highlight user mentions:</p>
+<p>Please let
+   <span class="user-mention">
+     @Araq
+   </span>
+   know that this forum is awesome.</p>
+            </div>
+            <div class="post-buttons">
+              <div class="like-button">
+                <button class="btn">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="flag-button">
+                <button class="btn">
+                  <i class="far fa-flag"></i>
+                </button>
+              </div>
+              <div class="reply-button">
+                <button class="btn">
+                  <i class="fas fa-reply"></i>
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="information load-more-posts">
+          <div class="information-icon">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <div class="information-main">
+            <div class="information-title">
+              Load more posts
+            </div>
+            <div class="information-content">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="information no-border">
+          <div class="information-icon">
+            <i class="fas fa-reply"></i>
+          </div>
+          <div class="information-main">
+            <div class="information-title">
+              Replying to "Lexers and parsers in nim"
+            </div>
+            <div class="information-content">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+</body>
+
+</html>

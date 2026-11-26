@@ -1,0 +1,10 @@
+services:
+  forum:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - "../:/app"
+    ports:
+      - "5000:5000"
+    entrypoint: "/app/docker/entrypoint.sh"

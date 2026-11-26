@@ -1,0 +1,781 @@
+@import "custom-style";
+
+// Import full Spectre source code
+@import "spectre/src/spectre";
+
+// Global styles.
+// - TODO: Make these non-global.
+.btn, .form-input {
+  margin-right: $control-padding-x;
+}
+
+table th {
+  font-size: 0.65rem;
+}
+
+// Spectre fixes.
+// - Weird avatar outline.
+.avatar {
+  background: transparent;
+}
+
+// Custom styles.
+// - Navigation bar.
+$navbar-height: 60px;
+$default-category-color: #a3a3a3;
+$logo-height: $navbar-height - 20px;
+
+.navbar-button {
+  border-color: $navbar-border-color-dark;
+  background-color: $navbar-primary-color;
+  color: $navbar-color;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:hover {
+    background-color: darken($navbar-primary-color, 20%);
+    color: $navbar-color;
+    border-color: $navbar-border-color-dark;
+  }
+}
+
+#main-navbar {
+  background-color: $navbar-color;
+
+  .navbar {
+    height: $navbar-height;
+  }
+
+  // Unfortunately we must colour the controls in the navbar manually.
+  .search-input {
+    @extend .form-input;
+    min-width: 120px;
+    border-color: $navbar-border-color-dark;
+  }
+
+  .search-input:focus {
+    box-shadow: none;
+    border-color: $navbar-border-color-dark;
+  }
+
+  .btn-primary {
+    @extend .navbar-button;
+  }
+
+}
+
+#img-logo {
+  vertical-align: middle;
+  height: $logo-height;
+}
+
+.menu-right {
+  // To make sure the user menu doesn't move off the screen.
+  @media (max-width: 1600px) {
+    left: auto;
+    right: 0;
+  }
+  position: absolute;
+}
+
+// - Main buttons
+.btn-secondary {
+  background: $secondary-btn-color;
+  border-color: darken($secondary-btn-color, 5%);
+  color: invert($secondary-btn-color);
+
+  margin-right: $control-padding-x*2;
+
+  &:hover, &:focus {
+    background: darken($secondary-btn-color, 5%);
+    border-color: darken($secondary-btn-color, 10%);
+
+    color: invert($secondary-btn-color);
+  }
+
+  &:focus {
+    @include control-shadow(darken($secondary-btn-color, 40%));
+  }
+}
+
+#main-buttons {
+  margin-top: $control-padding-y*2;
+  margin-bottom: $control-padding-y*2;
+
+  .dropdown > .btn {
+    @extend .btn-secondary;
+  }
+}
+
+#category-selection {
+  .dropdown {
+    .btn {
+      margin-right: 0px;
+    }
+  }
+  .plus-btn {
+    margin-right: 0px;
+    i {
+      margin-right: 0px;
+    }
+  }
+}
+
+.category-description {
+  opacity: 0.6;
+  font-size: small;
+}
+
+.category-status {
+  font-size: small;
+  font-weight: bold;
+
+  .topic-count {
+    margin-left: 5px;
+    opacity: 0.7;
+    font-size: small;
+  }
+}
+
+.category {
+  white-space: nowrap;
+}
+
+#new-thread {
+  .modal-container .modal-body {
+    max-height: none;
+  }
+
+  .panel-body {
+    padding-top: $control-padding-y*2;
+    padding-bottom: $control-padding-y*2;
+  }
+
+  .form-input[name='subject'] {
+    margin-bottom: $control-padding-y*2;
+  }
+
+  textarea.form-input, .panel-body > div {
+    min-height: 40vh;
+  }
+
+  .footer {
+    float: right;
+    margin-top: $control-padding-y*2;
+  }
+}
+
+// - Thread table
+.thread-title {
+  a, a:hover {
+    color: $body-font-color;
+    text-decoration: none;
+  }
+
+  a.visited, a:visited {
+    color: lighten($body-font-color, 40%);
+  }
+
+  i {
+    // Icon
+    margin-right: $control-padding-x-sm;
+  }
+}
+
+.thread-list {
+  @extend .container;
+  @extend .grid-xl;
+}
+
+.category-list {
+  @extend .thread-list;
+
+
+  .category-title {
+    @extend .thread-title;
+    a, a:hover {
+      color: lighten($body-font-color, 10%);
+      text-decoration: none;
+    }
+  }
+
+  .category-description {
+    opacity: 0.6;
+  }
+}
+
+#categories-list .category {
+  border-left: 6px solid;
+  border-left-color: $default-category-color;
+}
+
+$super-popular-color: #f86713;
+$popular-color: darken($super-popular-color, 25%);
+$threads-meta-color: #545d70;
+
+.super-popular-text {
+  color: $super-popular-color;
+}
+
+.popular-text {
+  color: $popular-color;
+}
+
+.views-text {
+  color: $threads-meta-color;
+}
+
+.label-custom {
+  color: white;
+  background-color: $label-color;
+
+  font-size: 0.6rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border-radius: 5rem;
+}
+
+.last-visit-separator {
+  td {
+    border-bottom: 1px solid $super-popular-color;
+    line-height: 0.1rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  span {
+    color: $super-popular-color;
+    padding: 0 8px;
+    font-size: 0.7rem;
+    background-color: $body-bg;
+  }
+}
+
+.no-border {
+  td {
+    border: none;
+  }
+}
+
+.category-color {
+  width: 0;
+  height: 0;
+  border: 0.25rem solid $default-category-color;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.load-more-separator {
+  text-align: center;
+  color: darken($label-color, 35%);
+  background-color: lighten($label-color, 15%);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 80%;
+  cursor: pointer;
+
+  td {
+    border: none;
+    padding: $control-padding-x $control-padding-y/2;
+  }
+}
+
+// - Thread view
+.title {
+  margin-top: $control-padding-y*2;
+  margin-bottom: $control-padding-y*2;
+
+  p {
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    color: darken($dark-color, 20%);
+
+    margin: 0;
+  }
+
+  i.fas {
+    margin-right: $control-padding-x-sm;
+  }
+}
+
+.thread-replies, .thread-time, .views-text, .popular-text, .super-popular-text, .centered-header {
+  text-align: center;
+}
+
+.thread-users {
+  text-align: left;
+}
+
+.thread-time {
+  color: $threads-meta-color;
+
+  &.is-new {
+    @extend .text-success;
+  }
+
+  &.is-old {
+    @extend .text-gray;
+  }
+
+}
+
+// Hide all the avatars but the first on small screens.
+@media screen and (max-width: 600px) {
+  #threads-list a:not(:first-child) > .avatar {
+    display: none;
+  }
+}
+
+.posts, .about {
+  @extend .grid-md;
+  @extend .container;
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: 10rem; // Just some empty space at the bottom.
+}
+
+.post {
+  @extend .tile;
+  border-top: 1px solid $border-color;
+  padding-top: $control-padding-y-lg;
+
+  &:target .post-main, &.highlight .post-main {
+    animation: highlight 2000ms ease-out;
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: lighten($primary-color, 20%);
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+.post-icon {
+  @extend .tile-icon;
+}
+
+.post-avatar {
+  @extend .avatar;
+  font-size: 1.6rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.post-main {
+  @extend .tile-content;
+
+  margin-bottom: $control-padding-y-lg*2;
+  // https://stackoverflow.com/a/41675912/492186
+  flex: 1;
+  min-width: 0;
+}
+
+.post-title {
+  margin-bottom: $control-padding-y*2;
+
+  &, a, a:visited, a:hover {
+    color: lighten($body-font-color, 20%);
+    text-decoration: none;
+  }
+
+
+  .thread-title {
+    width: 100%;
+
+    a > div {
+      display: inline-block;
+    }
+  }
+
+  .post-username {
+    font-weight: bold;
+    display: inline-block;
+
+    i {
+      margin-left: $control-padding-x;
+    }
+  }
+
+  .post-metadata {
+    float: right;
+
+    .post-replyingTo {
+      display: inline-block;
+      margin-right: $control-padding-x;
+
+      i.fa-reply {
+        transform: rotate(180deg);
+      }
+    }
+
+    .post-history {
+      display: inline-block;
+      margin-right: $control-padding-x;
+
+      i {
+        font-size: 90%;
+      }
+
+      .edit-count {
+        margin-right: $control-padding-x-sm/2;
+      }
+    }
+  }
+}
+
+.post-content, .about {
+  img {
+    max-width: 100%;
+  }
+}
+
+.post-buttons {
+  float: right;
+
+  > div {
+    display: inline-block;
+  }
+
+  .btn {
+    background: transparent;
+    border-color: transparent;
+    color: darken($secondary-btn-color, 40%);
+
+    margin: 0;
+    margin-left: $control-padding-y-sm;
+  }
+
+  .btn:hover {
+    background: $secondary-btn-color;
+    border-color: darken($secondary-btn-color, 5%);
+    color: invert($secondary-btn-color);
+  }
+
+  .btn:focus {
+    @include control-shadow(darken($secondary-btn-color, 50%));
+  }
+
+  .btn:active {
+    box-shadow: inset 0 0 .4rem .01rem darken($secondary-btn-color, 80%);
+  }
+
+  .like-button i:hover, .like-button i.fas {
+    color: #f783ac;
+  }
+
+  .like-count {
+    margin-right: $control-padding-x-sm;
+  }
+}
+
+#thread-buttons {
+  border-top: 1px solid $border-color;
+  width: 100%;
+  padding-top: $control-padding-y;
+  padding-bottom: $control-padding-y;
+  @extend .clearfix;
+
+  .btn {
+    float: right;
+    margin-right: 0;
+    margin-left: $control-padding-x;
+  }
+}
+
+blockquote {
+  border-left: 0.2rem solid darken($bg-color, 10%);
+  background-color: $bg-color;
+
+  .detail {
+    margin-bottom: $control-padding-y;
+    color: lighten($body-font-color, 20%);
+  }
+}
+
+.quote-avatar {
+  @extend .avatar;
+  @extend .avatar-sm;
+}
+
+.quote-link {
+  float: right;
+}
+
+.user-mention {
+  @extend .chip;
+  vertical-align: initial;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 85%;
+  height: inherit;
+  padding: 0.08rem 0.4rem;
+  background-color: darken($bg-color-dark, 5%);
+
+  img {
+    @extend .avatar;
+    @extend .avatar-sm;
+  }
+}
+
+.code-buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  .btn-primary {
+    margin-bottom: $control-padding-y;
+  }
+}
+
+.execution-result {
+  @extend .toast;
+
+  h6 {
+    font-family: $base-font-family;
+  }
+}
+
+.execution-success {
+  @extend .toast-success;
+}
+
+.code {
+  // Don't show the "none".
+  &[data-lang="none"]::before {
+    content: "";
+  }
+
+  // &:not([data-lang="Nim"]) > .code-buttons {
+  //   display: none;
+  // }
+}
+.code-buttons {
+  display: none;
+}
+
+.post-content {
+  pre:not(.code) {
+    overflow: scroll;
+  }
+}
+
+.information {
+  @extend .tile;
+  border-top: 1px solid $border-color;
+  padding-top: $control-padding-y-lg*2;
+  padding-bottom: $control-padding-y-lg*2;
+  color: lighten($body-font-color, 20%);
+  .information-title {
+    font-weight: bold;
+  }
+
+  &.no-border {
+    border: none;
+  }
+}
+
+.information-icon {
+  @extend .tile-icon;
+
+  i {
+    width: $unit-16;
+    text-align: center;
+    font-size: 1rem;
+
+  }
+}
+
+.time-passed {
+  text-transform: uppercase;
+}
+
+.load-more-posts {
+  text-align: center;
+  color: darken($label-color, 35%);
+  background-color: lighten($label-color, 15%);
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+
+  .information-main {
+    width: 100%;
+    text-align: left;
+  }
+
+  .more-post-count {
+    color: rgba(darken($label-color, 35%), 0.5);
+    margin-right: $control-padding-x*2;
+    float: right;
+  }
+}
+
+.form-input.post-text-area {
+  margin-top: $control-padding-y*2;
+  resize: vertical;
+}
+
+#reply-box {
+  .panel {
+    margin-top: $control-padding-y*2;
+  }
+}
+
+code {
+  color: $body-font-color;
+  background-color: $bg-color;
+}
+
+tt {
+  @extend code;
+}
+
+hr {
+  background: $border-color;
+  height: $border-width;
+  margin: $unit-2 0;
+  border: 0;
+}
+
+.edit-box {
+  .edit-buttons {
+    margin-top: $control-padding-y*2;
+
+    float: right;
+
+    > div {
+      display: inline-block;
+    }
+  }
+
+  .text-error {
+    margin-top: $control-padding-y*3;
+    display: inline-block;
+  }
+
+  .form-input.post-text-area {
+    margin-bottom: $control-padding-y*2;
+  }
+}
+
+@import "syntax.scss";
+
+// - Profile view
+
+.profile {
+  @extend .tile;
+  margin-top: $control-padding-y*5;
+}
+
+.profile-icon {
+  @extend .tile-icon;
+  margin-right: $control-padding-x;
+}
+
+.profile-avatar {
+  @extend .avatar;
+  @extend .avatar-xl;
+
+  height: 6.2rem;
+  width: 6.2rem;
+}
+
+.profile-content {
+  @extend .tile-content;
+  padding: $control-padding-x $control-padding-y;
+}
+
+.profile-title {
+  @extend .tile-title;
+}
+
+.profile-stats {
+  dl {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding: $control-padding-x $control-padding-y;
+  }
+
+  dt {
+    font-weight: normal;
+    color: lighten($dark-color, 15%);
+  }
+
+  dt, dd {
+    display: inline-block;
+    margin: 0;
+    margin-right: $control-padding-x;
+  }
+
+  dd {
+    margin-right: $control-padding-x-lg;
+  }
+}
+
+.profile-tabs {
+  margin-bottom: $control-padding-y-lg*2;
+}
+
+.profile-post {
+  @extend .post;
+
+  .profile-post-main {
+    flex: 1;
+  }
+
+  .profile-post-time {
+    float: right;
+  }
+}
+
+.spoiler {
+  text-shadow: gray 0px 0px 15px;
+  color: transparent;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: normal;
+
+  &:hover, &:focus {
+    text-shadow: $body-font-color 0px 0px 0px;
+  }
+}
+
+.profile-post-title {
+  @extend .thread-title;
+}
+
+// - Sign up modal
+
+#signup-modal {
+  .modal-container .modal-body {
+    max-height: 60vh;
+  }
+}
+
+.license-text {
+  text-align: left;
+  font-size: 80%;
+}
+
+// - Reset password
+#resetpassword {
+  @extend .grid-sm;
+  @extend .container;
+
+  .form-input {
+    display: inline-block;
+    width: 15rem;
+    margin-bottom: $control-padding-y*2;
+  }
+
+  .footer {
+    margin-top: $control-padding-y*2;
+  }
+}

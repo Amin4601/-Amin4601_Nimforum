@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Nim programming language forum</title>
+
+  <link rel="stylesheet" href="nimforum.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+    <header id="main-navbar">
+      <div class="navbar container grid-xl">
+        <section class="navbar-section">
+          <a href="#">
+            <img src="images/crown.png"
+                 id="img-logo"/>
+          </a>
+        </section>
+        <section class="navbar-section">
+          <div class="input-group input-inline">
+            <input class="form-input input-sm" type="text" placeholder="search">
+          </div>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Sign up</button>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i> Log in</button>
+        </section>
+      </div>
+    </header>
+
+    <section class="navbar container grid-xl" id="main-buttons">
+      <section class="navbar-section">
+        <div class="dropdown">
+          <a href="#" class="btn dropdown-toggle" tabindex="0">
+            Filter <i class="fas fa-caret-down"></i>
+          </a>
+          <ul class="menu">
+            <li>community</li>
+            <li>dev</li>
+          </ul>
+        </div>
+        <button class="btn btn-primary">Latest</button>
+        <button class="btn btn-link">Most Active</button>
+        <button class="btn btn-link">Categories</button>
+      </section>
+      <section class="navbar-section">
+      </section>
+    </section>
+
+    <section class="container grid-xl">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Category</th>
+            <th>Users</th>
+            <th>Replies</th>
+            <th>Views</th>
+            <th>Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><i class="fas fa-lock fa-xs" style="vertical-align: 0.05rem;"></i> Few mixed up questions</td>
+            <td><div class="triangle" style="border-bottom: 0.6rem solid #fc7c14;"></div> help</td>
+            <td>
+              <figure class="avatar avatar-sm">
+                <img src="https://www.gravatar.com/avatar/4831aedc3469e317e581e9e7348519a1?s=40&amp;d=identicon" title="DTxplorer">
+              </figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/ed45a09ddafbe85bd1f3917f6ee57593?s=40&amp;d=identicon" title="mashingan">
+              </figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/b3ed6848f575cc54c49f4916d15b65fd?s=40&amp;d=identicon" title="mratsim"></figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/bd68fd5a3c41111e89cc9c71d25d5a06?s=40&amp;d=identicon" title="Hlaaftana"></figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/aa81bb8117f158b6d9e6f3f174092573?s=40&amp;d=identicon" title="ErikCampobadal"><i class="avatar-presence online"></i></figure>
+            </td>
+            <td>5</td>
+            <td class="views-text">547</td>
+            <td class="text-success">45m</td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-check-square fa-xs" style="vertical-align: 0.05rem;"></i> Lexers and parsers in Nim</td>
+            <td><div class="triangle"></div> community</td>
+            <td>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/aa81bb8117f158b6d9e6f3f174092573?s=40&amp;d=identicon" title="ErikCampobadal"><i class="avatar-presence online"></i></figure>
+            </td>
+            <td>0</td>
+            <td class="views-text">14</td>
+            <td class="text-success">44m</td>
+          </tr>
+          <tr class="no-border">
+            <td>I need help <span class="label label-custom">2</span></td>
+            <td><div class="triangle" style="border-bottom: 0.6rem solid #fc7c14;"></div> help</td>
+            <td>
+              <figure class="avatar avatar-sm">
+                <img src="https://www.gravatar.com/avatar/4831aedc3469e317e581e9e7348519a1?s=40&amp;d=identicon" title="DTxplorer">
+              </figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/ed45a09ddafbe85bd1f3917f6ee57593?s=40&amp;d=identicon" title="mashingan">
+              </figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/b3ed6848f575cc54c49f4916d15b65fd?s=40&amp;d=identicon" title="mratsim"></figure>
+            </td>
+            <td>4</td>
+            <td class="popular-text">1.4k</td>
+            <td>1d</td>
+          </tr>
+          <tr class="last-visit-separator">
+            <td colspan="6">
+              <span>
+                last visit
+              </span>
+            </td>
+          </tr>
+          <tr class="no-border">
+            <td>Nim v1.0 is here!</td>
+            <td><div class="triangle" style="border-bottom: 0.6rem solid #1f93f3;"></div> announcement</td>
+            <td>
+              <figure class="avatar avatar-sm">
+                <img src="https://www.gravatar.com/avatar/4831aedc3469e317e581e9e7348519a1?s=40&amp;d=identicon" title="DTxplorer">
+              </figure>
+              <figure class="avatar avatar-sm">
+              <img src="https://www.gravatar.com/avatar/ed45a09ddafbe85bd1f3917f6ee57593?s=40&amp;d=identicon" title="mashingan">
+              </figure>
+            </td>
+            <td class="text-error">4</td>
+            <td class="super-popular-text">24.2k</td>
+            <td class="text-gray">4d</td>
+          </tr>
+          <tr class="load-more-separator">
+            <td colspan="6">
+              <span>
+                load more threads
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+</body>
+
+</html>
